@@ -1,0 +1,18 @@
+<launch>
+
+<!-- rosrun shape_reconstruction _3_Shape_Reconstruction.py -->
+<node name="shape_reconstruction" pkg="shape_reconstruction" type="_3_Shape_Reconstruction.py" output="screen" required="true">
+    <!-- <param name="tactile_topic" value="/ -->
+</node>
+
+<!-- rosrun controller switch.py -->
+<node name="controller_switch" pkg="controller" type="switch.py" output="screen">
+    <!-- <param name="tactile_topic" value="/ -->
+</node>
+
+<!-- roslaunch orientation_estimation groundtruth.launch-->
+<include file="$(find orientation_estimation)/launch/groundtruth.launch">
+</include>
+    <!-- <arg name="tactile_topic" value="/ -->
+
+</launch>
